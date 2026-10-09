@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Funny Love Lab — demo e-commerce para practicar implementación de GA4 y Google Tag Manager." />
+  <title>Funny Love Lab — E-commerce Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="topbar">Envío discreto · Compra segura · Demo para practicar GA4</div>
+
+  <header class="site-header">
+    <a class="brand" href="#" data-track="logo_click">
+      <span class="brand-mark">FL</span>
+      <span>
+        <strong>Funny Love</strong>
+        <small>LAB STORE</small>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="#productos">Productos</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Buscar">⌕</button>
+      <button class="cart-btn" id="cartButton">
+        Carrito <span id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">BIENESTAR · PRIVACIDAD · EXPERIENCIA</span>
+        <h1>Una tienda íntima que se siente <em>moderna</em>, no improvisada.</h1>
+        <p>
+          Este sitio es una demo mejorada para practicar analítica: navegación, búsqueda,
+          selección de producto, carrito, checkout y compra simulada.
+        </p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#productos" id="heroShop">Explorar productos</a>
+          <a class="btn ghost" href="#analytics">Ver eventos GA4</a>
+        </div>
+
+        <div class="trust-row">
+          <span>✓ Empaque discreto</span>
+          <span>✓ Pago seguro</span>
+          <span>✓ Entrega CDMX</span>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Ilustración abstracta de productos">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="product-shape shape-a"></div>
+        <div class="product-shape shape-b"></div>
+        <div class="hero-card">
+          <small>COLECCIÓN</small>
+          <strong>Selección Premium</strong>
+          <span>Diseño, privacidad y confianza</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits" id="beneficios">
+      <article>
+        <span>01</span>
+        <h3>Compra discreta</h3>
+        <p>Una propuesta de valor clara desde el primer scroll.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h3>Navegación simple</h3>
+        <p>Menos categorías visibles y mejores rutas hacia producto.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h3>Medición real</h3>
+        <p>Eventos e-commerce preparados para GA4 y GTM.</p>
+      </article>
+    </section>
+
+    <section class="catalog" id="productos">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">CATÁLOGO DEMO</span>
+          <h2>Encuentra lo que buscas</h2>
+        </div>
+        <div class="controls">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="searchInput" type="search" placeholder="Buscar productos..." />
+          </label>
+          <select id="categoryFilter" aria-label="Filtrar categoría">
+            <option value="all">Todas</option>
+            <option value="bienestar">Bienestar</option>
+            <option value="premium">Premium</option>
+            <option value="cuidado">Cuidado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="analytics-lab" id="analytics">
+      <div>
+        <span class="eyebrow">GA4 IMPLEMENTATION LAB</span>
+        <h2>Todo lo que haces aquí genera eventos de práctica.</h2>
+        <p>
+          Abre la consola del navegador para ver cada evento. Luego reemplaza
+          <code>G-XXXXXXXXXX</code> por tu Measurement ID.
+        </p>
+      </div>
+      <div class="event-chips">
+        <code>view_item_list</code>
+        <code>select_item</code>
+        <code>view_item</code>
+        <code>add_to_cart</code>
+        <code>view_cart</code>
+        <code>begin_checkout</code>
+        <code>purchase</code>
+        <code>search</code>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div>
+        <span class="eyebrow">CRM / LEAD EVENT</span>
+        <h2>10% de descuento en tu primera compra</h2>
+        <p>Otro punto de práctica: captura de lead y evento <code>sign_up</code>.</p>
+      </div>
+      <form id="newsletterForm">
+        <input id="newsletterEmail" type="email" placeholder="tu@email.com" required />
+        <button class="btn primary" type="submit">Quiero mi descuento</button>
+      </form>
+    </section>
+
+    <section class="faq" id="faq">
+      <span class="eyebrow">PREGUNTAS FRECUENTES</span>
+      <h2>Privacidad primero.</h2>
+      <details>
+        <summary>¿El paquete revela el contenido?</summary>
+        <p>En esta demo, el mensaje de negocio es que el envío se presenta como discreto y sin información sensible en el exterior.</p>
+      </details>
+      <details>
+        <summary>¿Puedo usar este sitio para practicar Google Analytics?</summary>
+        <p>Sí. Está diseñado expresamente para disparar eventos de navegación y e-commerce.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand">
+      <span class="brand-mark">FL</span>
+      <span><strong>Funny Love Lab</strong><small>DEMO ANALYTICS STORE</small></span>
+    </div>
+    <p>Sitio demostrativo. No procesa pagos ni pedidos reales.</p>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h2>Tu carrito</h2>
+      <button class="icon-btn" id="closeCart">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-summary">
+      <div><span>Total</span><strong id="cartTotal">$0</strong></div>
+      <button class="btn primary full" id="checkoutBtn">Continuar al checkout</button>
+    </div>
+  </aside>
+
+  <dialog id="productModal" class="product-modal">
+    <button class="modal-close" id="closeModal">×</button>
+    <div id="modalContent"></div>
+  </dialog>
+
+  <dialog id="checkoutModal" class="checkout-modal">
+    <button class="modal-close" id="closeCheckout">×</button>
+    <div class="checkout-layout">
+      <div>
+        <span class="eyebrow">CHECKOUT DEMO</span>
+        <h2>Finaliza tu compra simulada</h2>
+        <p>No se solicitará ni almacenará información de pago.</p>
+      </div>
+      <form id="checkoutForm">
+        <label>Nombre<input type="text" required placeholder="Nombre de prueba"></label>
+        <label>Email<input type="email" required placeholder="demo@example.com"></label>
+        <label>Ciudad
+          <select required>
+            <option>Ciudad de México</option>
+            <option>Estado de México</option>
+            <option>Otra</option>
+          </select>
+        </label>
+        <button class="btn primary full" type="submit">Simular compra</button>
+      </form>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <div class="consent" id="consentBanner">
+    <p><strong>Analytics Lab:</strong> esta demo puede cargar GA4 cuando aceptes analítica.</p>
+    <div>
+      <button class="btn ghost small" id="denyAnalytics">Rechazar</button>
+      <button class="btn primary small" id="acceptAnalytics">Aceptar analítica</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
